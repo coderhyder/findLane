@@ -69,9 +69,10 @@ combo_image = cv2.addWeighted(lane_image,0.8,line_image,1,1)
 cv2.imshow("result", combo_image)
 cv2.waitKey(0)
 """
-
+fcount = 0
 cap = cv2.VideoCapture("test2.mp4")
 while(cap.isOpened()):
+    print(fcount)
     _, frame = cap.read()
     canny_image = canny(frame)
     cropped_image = region_of_interest(canny_image) 
@@ -80,8 +81,10 @@ while(cap.isOpened()):
     line_image= display_lines(frame,averaged_lines)
     combo_image = cv2.addWeighted(frame,0.8,line_image,1,1)
     cv2.imshow("result", combo_image)
+    fcount = fcount + 1
     if cv2.waitKey(2) == ord('q'):
         break
+cv2.waitKey(5)
 cap.release()
 cv2.destroyAllWindows()
 
