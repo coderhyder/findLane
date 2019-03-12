@@ -1,1 +1,2 @@
 print(" I am making sure everything is working well typed into github at noisebridge")
+Yes, I know you are testing the files, but are they working?
